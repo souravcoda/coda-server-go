@@ -42,7 +42,7 @@ func main() {
 
 	r := gin.Default()
 
-	r.POST("/coda/v0.01/publishJsonDataToKafka/", func(c *gin.Context) {
+	r.POST("/coda/v0.01/stream-data/", func(c *gin.Context) {
 
 		var inputdata InputData
 		if err := c.BindJSON(&inputdata); err != nil {
@@ -67,7 +67,7 @@ func main() {
 
 	})
 
-	r.GET("/ping", func(c *gin.Context) {
+	r.GET("/coda/v0.01/ping", func(c *gin.Context) {
 		// Return Json response
 		c.JSON(200, gin.H{
 			"message": "pong",
